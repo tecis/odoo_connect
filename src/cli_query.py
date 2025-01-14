@@ -1,5 +1,5 @@
 #!python3
-from os.path import isdir, join, relpath, abspath
+from os.path import isdir, join, abspath
 import json
 import xmlrpc.client
 import click
@@ -330,8 +330,8 @@ def cli_exe(
     if output is None:
         print(text)
     else:
-        if isdir(str(output)):
-            output = join(output, f"{table}.json")
+        if isdir(abspath(str(output))):
+            output = join(abspath(output), f"{table}.json")
             with open(output, "w", encoding="utf-8") as f:
                 f.write(str(json.dumps(text)))
                 print(f"File saved to {output}.")
