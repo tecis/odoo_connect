@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "odoo_conection"
+description = "Compilation of tools to obtain data from live Odoo interface."
+authors = [
+    {name = "tecis", url = "https://github.com/tecis"},
+]
+version = "202412001"
+dependencies = [
+  "pandas",
+  "click",
+]
+requires-python = ">=3.8"
+readme = "README.txt"
+keywords = ["odoo", "data"]
+
+[project.scripts]
+query_data = "src:cli_query_ibd:cli_exe"
